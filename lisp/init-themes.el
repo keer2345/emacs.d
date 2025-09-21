@@ -64,5 +64,26 @@
   :config
   (load-theme 'zenburn t))
 
+(use-package doric-themes
+
+;; 随机主题        
+;; 主题黑名单
+(setq exclude-theme-list '(leuven doom-one doom-acario-light))
+(defun random-theme ()
+  "随机选择一个主题，排除不喜欢的主题"
+  (interactive)
+  (let* ((excluded-themes exclude-theme-list) ; 排除的主题列表
+         (available-themes (seq-filter (lambda (theme)
+                                        (not (memq theme excluded-themes)))
+                                      (custom-available-themes)))
+         (random-theme (nth (random (length available-themes)) available-themes)))
+    (when random-theme
+      (disable-theme (car custom-enabled-themes)) ; 禁用当前主题
+      (load-theme random-theme t)
+      (message "🎨 随机主题: %s" random-theme))))
+
+;; 启动时调用
+(add-hook 'after-init-hook 'random-theme)
+
 (provide 'init-themes)
 ;;; init-themes.el ends here
