@@ -53,6 +53,16 @@
       (not (display-graphic-p)))
     (add-to-list 'dimmer-exclusion-predicates 'sanityinc/display-non-graphic-p)))
 
+(use-package doom-themes
+  :config
+  (load-theme 'doom-one t) ; 加载 doom-one 主题，'t' 表示强制加载
+  ;; 启用炫酷的模型线
+  (doom-themes-visual-bell-config)
+  (doom-themes-org-config))
+
+(use-package zenburn-theme
+  :config
+  (load-theme 'zenburn t))
 
 (provide 'init-themes)
 ;;; init-themes.el ends here
