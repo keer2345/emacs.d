@@ -64,7 +64,7 @@
   :config
   (load-theme 'zenburn t))
 
-(use-package doric-themes
+(use-package doric-themes)
 
 ;; 随机主题        
 ;; 主题黑名单
