@@ -32,6 +32,8 @@
 (require 'use-package-ensure)
 (setq use-package-always-ensure t)
 
+;; Allow built-in packages to be upgraded
+(setq package-install-upgrade-built-in t)
 
 
 ;; Work-around for https://debbugs.gnu.org/cgi/bugreport.cgi?bug=34341
